@@ -1,0 +1,60 @@
+<div id="main-box" >
+    <mat-toolbar class="border-bottom">
+       <span>Add Questions</span>
+       <span class="example-spacer"></span>
+      <mat-icon routerLink="../th-exam">cancel_circle</mat-icon>
+    </mat-toolbar>
+    <div id="question-no" class=" pt-2" ><h2>Ques.No:1</h2></div>
+    <form action="">
+      <mat-form-field  appearance="fill" class="question-box">
+        <mat-label>Write question here...</mat-label>
+        <input matInput type="text" required="" >
+        <textarea matInput
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+      <div class="option-maindiv question-box" style="float: left;">
+        <div class="apnaquestion">
+          <div class="apna-option p-2"><h2>a.</h2></div>
+          <mat-form-field class="example-form-field apna-ques">
+           <mat-label class="p-1">Option 1</mat-label>
+           <input matInput type="TEXT" required="" >
+         </mat-form-field>
+        </div> 
+        <div class="apnaquestion mg " style="float: right;">
+          <div class="apna-option p-2"><h2>b.</h2></div>
+          <mat-form-field class="example-form-field apna-ques">
+           <mat-label class="p-1">option 2</mat-label>
+           <input matInput type="text" required="" >
+         </mat-form-field>
+        </div><br><br>
+        <div class="apnaquestion">
+          <div class="apna-option p-2"><h2>c.</h2></div>
+          <mat-form-field class="example-form-field apna-ques">
+           <mat-label class="p-1">option 3</mat-label>
+           <input matInput type="TEXT" required="" >
+         </mat-form-field>
+        </div> 
+        <div class="apnaquestion mg " style="float: right;">
+          <div class="apna-option p-2"><h2>d.</h2></div>
+          <mat-form-field class="example-form-field apna-ques">
+           <mat-label class="p-1">option 4</mat-label>
+           <input matInput type="text" required="" >
+         </mat-form-field>
+        </div> <br><br>
+        <div class="apnaquestion">
+          <div class="apna-option p-2" style="width:200px"><h2>correct option:</h2></div>
+          <mat-form-field class="example-form-field apna-ques" style="width: 50px;">
+           <mat-label class="p-1"></mat-label>
+           <input matInput type="TEXT" required="" >
+         </mat-form-field>
+        </div>
+        <!-- <button  mat-raised-button color="primary" class="p-3">Previous</button> -->
+        <button    class="p-3 btn btn-primary">Back</button>
+        <button    class="p-3 btn btn-success btn-nxt ">Next</button>
+      </div>
+  </form>
+    
+</div>

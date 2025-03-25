@@ -1,0 +1,40 @@
+<div id="wrapper">
+<mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="/assets/logo.png" alt="">
+  <span class="sname">UNIQUE SCHOOL</span>
+    <span class="example-spacer"></span>
+    <span [matMenuTriggerFor]="menu"style="font-family: Inria Serif;">{{login_as.user_name|titlecase }}<mat-icon >arrow_drop_down</mat-icon></span>
+        <div id="usericon"></div>
+  </mat-toolbar>
+   <!-- menu button  -->
+<mat-menu #menu="matMenu">
+  <button mat-menu-item class="text-white" routerLink="/login"><mat-icon class="text-white">logout</mat-icon>Log out</button>
+  <!-- <button mat-menu-item class="text-white">Setting</button> -->
+</mat-menu>
+  <mat-drawer-container class="example-container" autosize >
+    <mat-drawer #drawer class="example-sidenav" [mode]="sidemode" [opened]="autoside">     
+         <ul>
+            <li routerLink="./admin-dashboard" routerLinkActive="active"><mat-icon>dashboard</mat-icon>&nbsp;Dashboard</li>
+            <li routerLink="./admin-student" routerLinkActive="active"><mat-icon>groups</mat-icon>&nbsp;Student</li>
+            <li routerLink="./admin-teacher" routerLinkActive="active"><mat-icon>man</mat-icon>&nbsp;Teacher</li>
+            <li routerLink="./admin-librarian" routerLinkActive="active"><mat-icon>group</mat-icon>&nbsp;Librarian</li>
+            <li routerLink="./staff" routerLinkActive="active"><mat-icon>groups</mat-icon>&nbsp;Staff</li>
+            <li routerLink="./class" routerLinkActive="active"><mat-icon>class</mat-icon>&nbsp;Class</li>
+            <li routerLink="./subject" routerLinkActive="active"><mat-icon>subject</mat-icon>&nbsp;Subjects</li>
+            <li routerLink="./fee" routerLinkActive="active"><mat-icon>money</mat-icon>&nbsp;Fee</li>
+            <li routerLink="./salary" routerLinkActive="active"><mat-icon>money</mat-icon>&nbsp;Salary</li>
+            <li routerLink="./notification" routerLinkActive="active"><mat-icon>notifications</mat-icon>&nbsp;Notification</li>
+            <li routerLink="./application" routerLinkActive="active"><mat-icon>notebooks</mat-icon>&nbsp;Application</li>
+            <li routerLink="./expense" routerLinkActive="active"><mat-icon>money</mat-icon>&nbsp;Expense</li>
+            <li routerLink="/login" routerLinkActive="active"><mat-icon>logout</mat-icon>&nbsp;Log out</li>
+            
+        </ul>
+    </mat-drawer>
+    <app-viewport></app-viewport>
+    <!-- <router-outlet></router-outlet> -->
+  </mat-drawer-container>
+  <div id="footer">Unique school@2023</div>
+</div>

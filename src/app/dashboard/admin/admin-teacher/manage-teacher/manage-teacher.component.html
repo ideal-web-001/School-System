@@ -1,0 +1,107 @@
+<div>
+    <mat-toolbar>
+       <span class="p-3">{{(tid)?"Update Teacher":"Add Teacher"}}</span>
+       <span class="example-spacer"></span>
+      <mat-icon  class="pb-4" (click)="back()">cancel</mat-icon>
+      </mat-toolbar>
+</div>
+
+<div class="bg-white border  p-4">
+  <div class="form_scroll">
+   <form action="" class="example_form" [formGroup]="add_teacher">
+      <div class="img_style">
+        <img src="{{img_url}}" width="100%" height="100%">
+         <button mat-fab color="primary" (click)="image.click()">
+            <mat-icon class="pic_add_icon">add</mat-icon>
+            <input type="file" #image (change) ="onImgChng(image.files)"  accept=".png,.jpg">
+          </button>
+       </div>
+      <!-- <mat-form-field class="example-form-field p-4">
+        <mat-label class="p-1">Teacher ID</mat-label>
+        <input matInput type="text"   formControlName="t_id">
+      </mat-form-field> -->
+      <input type="hidden" formControlName="t_id" *ngIf="tid">
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Name</mat-label>
+        <input matInput type="text" required=""  formControlName="t_name">
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-form-field padding ">
+        <mat-label>Gender</mat-label>
+        <mat-select required="" formControlName="t_gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Others">Others</mat-option>
+        </mat-select>
+      </mat-form-field>
+          <mat-form-field class="example-form-field padding ">
+            <mat-label class="p-1">Father's Name</mat-label>
+            <input matInput type="text" required="" formControlName="t_fname" >
+          </mat-form-field>
+          <mat-form-field class="example-form-field padding ">
+            <mat-label class="p-1">Address</mat-label>
+            <input matInput type="text" required=""  formControlName="t_address">
+          </mat-form-field>
+          <mat-form-field class="example-form-field padding ">
+            <mat-label class="p-1">Mobile No</mat-label>
+            <input matInput type="number" required="" formControlName="t_mob"  onkeypress=" return this.value.length < 10"
+            oninput="if(this.value.length>=10){this.value = this.value.sclice (0,10)}">
+            <mat-hint>please enter only(0,10)digit</mat-hint>
+          </mat-form-field>
+          <mat-form-field class="example-form-field padding">
+            <mat-label class="p-1">Aadhar No.</mat-label>
+            <input matInput type="number" required="" formControlName="t_aadhar" onkeypress=" return this.value.length < 12"
+            oninput="if(this.value.length>=12) {this.value = this.value.sclice (0,12);}" >
+          </mat-form-field>
+          <mat-form-field class="example-form-field padding " color="accent" appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="t_dob">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-form-field padding ">
+            <mat-label class="p-1">Email</mat-label>
+            <input matInput type="email" required="" formControlName="t_email">
+          </mat-form-field>
+          <!-- join date start -->
+          <mat-form-field class="example-form-field padding" color="accent" appearance="fill">
+            <mat-label>Join Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="t_jndate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <!-- join date end -->
+          <mat-form-field class="example-form-field padding ">
+            <mat-label class="p-1">Salary</mat-label>
+            <input matInput type="number" required=""  formControlName="t_salary">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="example-form-field padding ">
+            <mat-label>Subject</mat-label>
+            <mat-select required="" formControlName="sub_id">
+              <mat-option *ngFor="let subject of subject"[value]="subject.sub_id">{{subject.sub_name}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="example-form-field padding ">
+            <mat-label>Class</mat-label>
+           <mat-select required="" formControlName="class_id">
+             <mat-option *ngFor="let class of class"[value]="class.class_id">{{class.class_name}}</mat-option>   
+           </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-form-field padding ">
+            <mat-label class="p-1">Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="t_password">
+       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+      <mat-icon class="color">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+          </mat-form-field>
+          <br>
+          <!-- <input class="p-4" type="file"> -->
+          <button class="btn text-white btn-danger m-2 mt-0 " (click)="goback()">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          <!-- <button class="btn text-white btn-danger m-2 mt-0 " > &nbsp; &nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
+          <button class="btn text-white btn-primary m-2 mt-0 " (click)=" reset_form()" *ngIf="!tid">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          <button class="btn text-white btn-success m-2 mt-0 " (click)="(tid)?onupdate():onSave()">&nbsp;&nbsp;&nbsp;&nbsp;{{(tid)?"Update":"Add"}}&nbsp;&nbsp;&nbsp;&nbsp;</button> 
+    </form>
+   
+</div>
+</div>

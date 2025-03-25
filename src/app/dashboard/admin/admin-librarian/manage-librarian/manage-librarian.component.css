@@ -1,0 +1,47 @@
+/* head of form */
+mat-toolbar{
+    background-color:white;
+    color: #FE8E0B;
+}
+.mat-icon{
+    color: #FE8E0B;
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+    float: right;
+}
+/* forms */
+.example-form-field {
+    width: 300px;
+  }
+  .img_style{
+    width: 150px;
+    height: 150px;
+    border: 5px solid blue;
+    border-radius: 100px;
+    margin: 0 auto 20px;
+ }
+ .img_style>button{
+    position: relative;
+    top: -70px;
+    left: 115px;
+  }
+ .img_style input{
+     display: none;
+ }
+  .img_style>img{
+     border-radius: 100%;
+  }
+  .pic_add_icon{
+    color: white;
+  }
+  input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+  }
+  .padding{
+    padding-right:15px;
+    padding-bottom: 2px;
+  }
+  .color{
+    color: black;
+   }

@@ -1,0 +1,73 @@
+mat-toolbar {
+  background-color: white;
+  color: #FE8E0B;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.mat-icon {
+  color: #FE8E0B;
+  font-size: 30px;
+  width: 35px;
+  height: 35px;
+  float: right;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 230px;
+  width: 100%;
+  position: relative;
+  top: 10px;
+}
+  
+  .example-full-width {
+    width: 200px;
+    height: 70px;
+  }
+
+/* table css */
+table {
+  width: 100%;
+}
+
+table th {
+  background-color: #FE8E0B;
+  color: white;
+ 
+}
+
+table tr:hover{
+  background-color: #FE8E0B;
+  transition: all 0.5s;
+}
+table .mat-icon{
+  float: none;
+  color: #7d7575;
+  font-size: 30px;
+  cursor: pointer;
+ }
+ .table_scroll{
+  overflow-x: auto;
+}
+/* ..................................media query........................................ */
+@media(max-width:440px){
+  .example-full-width {
+    width: 150px;
+    height: 70px;
+    position: relative;
+    right: -30px;
+  }
+ }
+ @media(max-width:606px){
+ 
+  /* mat-toolbar{
+    height: 150px;
+  } */
+ }
+ @media(max-width:768px){
+  .mat-icon {
+    font-size: 25px;
+    width: 25px;
+  }
+ }

@@ -1,0 +1,80 @@
+<div>
+    <mat-toolbar>
+       <span class="p-3">{{(staffid)?'Update Staff':'Add Staff'}}</span>
+       <span class="example-spacer"></span>
+      <mat-icon (click)="back()"class="pb-4">cancel</mat-icon>
+      </mat-toolbar>
+</div>
+<div class="bg-white border ">
+    <form action="" [formGroup]="add_staff">
+   
+        <input type="hidden" readonly="" formControlName="staff_id" *ngIf="staffid"> 
+    
+        <mat-form-field class="example-form-field p-4">
+            <mat-label class="p-1">Name</mat-label>
+            <input matInput type="text" required="" formControlName="staff_name">
+          </mat-form-field>  
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Father's name</mat-label>
+            <input matInput type="text" required="" formControlName="staff_fname" >
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="example-form-field p-4 ">
+            <mat-label>Gender</mat-label>
+            <mat-select required="" formControlName="staff_gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="Other">Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 " color="accent" appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="staff_dob">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Address</mat-label>
+            <input matInput type="text" required="" formControlName="staff_address">
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Mobile</mat-label>
+            <input formControlName="staff_mob" matInput type="number" onkeypress=" return this.value.length < 10"
+                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" >
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Staff Type</mat-label>
+            <input matInput type="text" required="" formControlName="staff_type">
+          </mat-form-field>
+      
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Salary</mat-label>
+              <input formControlName="staff_salary" matInput type="number" onkeypress=" return this.value.length < 8"
+              oninput="if(this.value.length>=8) {this.value = this.value.sclice (0,8);}" >
+            </mat-form-field>
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Aadhar No.</mat-label>
+            <input formControlName="staff_aadhar" matInput type="number" onkeypress=" return this.value.length < 12"
+                oninput="if(this.value.length>=12) {this.value = this.value.sclice (0,12);}" >
+          </mat-form-field>
+         
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Email</mat-label>
+            <input matInput type="email" formControlName="staff_email">
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 "color="accent" appearance="fill">
+            <mat-label>Join Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="staff_jndate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <!-- <input class="p-4" type="file"> -->
+            <div>
+              <button  class="btn text-white btn-danger m-4">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              <button  class="btn text-white btn-primary m-4"(click)="OnReset()"*ngIf="!staffid" >&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              <button  class="btn text-white btn-success m-4"(click)="(staffid)?onupdate():OnSave()" >&nbsp;&nbsp;&nbsp;&nbsp;{{(staffid)?'Update':'Submit'}}&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            </div>
+           </form>
+   
+</div>

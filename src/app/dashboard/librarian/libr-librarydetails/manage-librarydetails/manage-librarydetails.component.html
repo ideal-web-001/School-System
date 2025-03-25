@@ -1,0 +1,26 @@
+<div class="w-100 bg-white h-100 ">
+  <div>
+      <mat-toolbar>
+         <span class="p-3">{{(libraryid)?"Update Library":"Add Library"}}</span>
+         <span class="example-spacer"></span>
+        <mat-icon routerLink="../libr-library-details" class="pb-4">cancel</mat-icon>
+        </mat-toolbar>
+  </div>
+  <div class=" border w-25 text-center pt-2 classform">
+      <form  [formGroup]="libraryform">
+          <span class="h1 text-white ">Library</span>
+          <mat-form-field class="example-form-field p-4">
+              <mat-label class="p-1">Library ID</mat-label>
+              <input matInput type="text"   formControlName="library_id">
+            </mat-form-field>
+            <mat-form-field class="example-form-field p-4">
+              <mat-label class="p-1">Library Name</mat-label>
+              <input matInput type="text" required="" formControlName="library_name">
+            </mat-form-field>
+            <button  class="btn btn-success w-75 p-3 mb-5" (click)="(libraryid)?updatelibrary():onsave()" >{{(libraryid)?"Update":"Add"}}</button>
+
+
+      </form>
+  </div>
+  
+</div>

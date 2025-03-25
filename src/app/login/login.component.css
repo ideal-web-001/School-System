@@ -1,0 +1,94 @@
+app-footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+#container{
+    background-color: #e17b07;
+    width: 100%;
+    height: 100%;
+}
+#wrapper{
+    width: 300px;
+    height: 400px;
+    position: relative;
+    top: 80px;
+    left: 40%;
+    border-radius: 10px ;
+    background-color: #b9eae7;
+}
+h1{
+    text-align: center;
+    background-color: #fe8e0b;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px  ;
+    font-size: 25px;
+    font-family: times new 'Times New Roman', Times, serif;
+}
+
+form{
+    padding: 20px;
+}
+label{
+    font-size: 18px;
+}
+.input{
+    width: 100%;
+    
+}
+
+example-form-field{
+    width: 100%;
+    /* margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    outline: none; */
+}
+input::placeholder{
+    font-size: 15px;
+}
+
+.loginbutton{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #fe8e0b;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+}
+span{
+    text-align: center;
+    padding-left: 50px;
+}
+a{
+    text-decoration: none;
+    font-size: 16px;
+}
+.visibilitybutton{
+    background-color: none;
+}
+.color{
+    color: black;
+}
+
+/*......................... media query................ */
+
+@media(max-width:420px){
+    #wrapper{
+        position: relative;
+        top: 80px;
+        left: 15%;
+    }
+}
+@media(min-width:421px) and (max-width:720px){
+    #wrapper{
+        position: relative;
+        top: 80px;
+        left: 15%;
+    }
+}

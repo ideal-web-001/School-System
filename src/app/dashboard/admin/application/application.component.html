@@ -1,0 +1,72 @@
+<div>
+  <mat-toolbar>
+     <span>Application</span>
+     <span class="example-spacer"></span>
+     <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <span matPrefix></span>
+        <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+    <!-- <mat-icon routerLink="../manage-application">add_circle</mat-icon> -->
+    </mat-toolbar>
+</div>
+<div>
+  <div class="table_scroll">
+  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="Sno">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> S.No. </th>
+      <td mat-cell *matCellDef="let i = index"> {{i+1}} </td>
+    </ng-container>
+  
+    <!-- sender name Column -->
+    <ng-container matColumnDef="appli_type">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Application Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.appli_type}} </td>
+    </ng-container>
+
+    <!-- date Column -->
+    <ng-container matColumnDef="std_name">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> student's Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.std_name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="class_name">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Class</th>
+      <td mat-cell *matCellDef="let element"> {{element.class_name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="std_roll">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header>Roll No.</th>
+      <td mat-cell *matCellDef="let element"> {{element.std_roll}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="appli_date">
+      <th mat-header-cell *matHeaderCellDef  class="th"  mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.appli_date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="appli_status">
+      <th mat-header-cell *matHeaderCellDef  class="th"  mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element" ><span *ngIf="element.appli_status == 0" style="color:rgb(255, 155, 4);font-weight: bold;">Pending</span><span *ngIf="element.appli_status == 1" style="color:green;font-weight: bold;">Success</span> <span *ngIf="element.appli_status == 2" style="color:red;font-weight: bold;">Reject</span> </td>
+    </ng-container>
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon routerLink="../manage-application/{{row.appli_id}}">visibility</mat-icon> 
+          </td>
+      </ng-container>  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

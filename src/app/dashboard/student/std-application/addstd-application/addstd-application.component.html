@@ -1,0 +1,27 @@
+<div class="w-100 h-100">
+    <div class="bg-white h-100 w-100">
+        <div>
+            <mat-toolbar>
+                <span class="p-3"> {{(aplid)?"View Application":"Add Application"}}</span>
+                <span class="example-spacer"></span>
+               <mat-icon   routerLink="../std-application" class="pb-4" (click)="back()">cancel</mat-icon>
+             </mat-toolbar>
+        </div>
+
+    <form class=" text-center"[formGroup]="add_appli">
+        <div>
+            <mat-form-field class="example-full-width p-3">
+                <mat-label class="p-1">Subject</mat-label>
+                <input matInput type="text" required="" formControlName="appli_type" >
+              </mat-form-field>
+        </div>
+        
+        <textarea class="bg-secondary p-3 text-white " name="" id="" cols="100" rows="15" formControlName="appli_msg" ></textarea>
+        <div class="">
+            <button  class="btn text-white btn-danger  p-2 m-3"(click)="back()" >&nbsp;&nbsp;&nbsp;&nbsp;{{(aplid)?"Back":"Cencel"}}&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button  routerLink="../std-dashboard" class="btn text-white btn-success p-2 m-3" (click)="OnSave()" *ngIf="!aplid">&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </div>
+    </form>
+ 
+   </div>
+

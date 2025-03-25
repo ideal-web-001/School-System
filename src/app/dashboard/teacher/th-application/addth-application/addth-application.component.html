@@ -1,0 +1,26 @@
+<div class="w-100 h-100">
+    <div class="bg-white h-100 w-100">
+        <div>
+            <mat-toolbar>
+                <span class="p-3"> Add Application</span>
+                <span class="example-spacer"></span>
+               <mat-icon   routerLink="../th-application" class="pb-4">cancel</mat-icon>
+             </mat-toolbar>
+        </div>
+
+    <form class=" text-center">
+        <div>
+            <mat-form-field class="example-full-width p-3">
+                <mat-label class="p-1">Subject</mat-label>
+                <input matInput type="text" required="" >
+              </mat-form-field>
+        </div>
+        
+        <textarea class="bg-secondary p-3 text-white " name="" id="" cols="100" rows="15"></textarea>
+        <div class="">
+            <button  class="btn text-white btn-danger  p-2 m-3">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button  routerLink="../th-application" class="btn text-white btn-success p-2 m-3">&nbsp;&nbsp;&nbsp;&nbsp;Publish&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </div>
+    </form>
+ 
+   </div>

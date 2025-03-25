@@ -1,0 +1,37 @@
+<div class="w-100 h-100 ">
+    <div class="bg-white h-100 w-100">
+        <div>
+            <mat-toolbar>
+                <span class="p-3"> Notification</span>
+                <span class="example-spacer"></span>
+               <mat-icon routerLink="../notification"  class="pb-4">cancel</mat-icon>
+             </mat-toolbar>
+        </div>
+    
+        <div class="w-100 text-center">
+            <form action=""   [formGroup]="add_notification">
+                <mat-form-field class="example-full-width p-3">
+                    <mat-label class="p-1">Notice (subject)</mat-label>
+                    <input matInput type="text" required="" formControlName="notice_type">
+                </mat-form-field>
+                <mat-form-field color="accent" appearance="fill">
+                  <mat-label>Date</mat-label>
+                  <input matInput [matDatepicker]="picker1" formControlName="notice_date">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                <div>
+                    <textarea class="bg-secondary p-3 text-white "  cols="100" rows="15" formControlName="notice_msg"></textarea>
+                </div>
+                  <div class="">
+                      <button  class="btn text-white btn-danger  p-2 m-3">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                      <button  routerLink="../notification" class="btn text-white btn-success p-2 m-3" (click)="onSave()">&nbsp;&nbsp;&nbsp;&nbsp;Publish&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                  </div>
+            </form>
+        </div>
+        
+        
+    
+ 
+   </div>

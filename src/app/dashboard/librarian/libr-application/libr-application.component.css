@@ -1,0 +1,54 @@
+mat-toolbar{
+    background-color:white;
+    color: #FE8E0B;
+}
+.mat-icon{
+    color: #FE8E0B;
+    font-size: 30px;
+    width: 35px;
+    height: 35px;
+    float: right;
+}
+.mat-icon:hover{
+  cursor: pointer;
+}
+.example-form {
+  min-width: 150px;
+  max-width : 230px;
+  width: 100%;
+  position: relative;
+  top: 10px;
+}
+  
+  .example-full-width {
+    width: 200px;
+    height: 70px;
+  }
+/* table css */
+table {
+    width: 100%;
+  }
+   table th{
+    background-color: #FE8E0B;
+    color: white;
+    text-align: center;
+}
+table td{
+  text-align: center;
+}
+table .mat-icon{
+  float: none;
+  color: #7d7575;
+  font-size: 30px;
+ }
+ table tr:hover {
+  background-color: #FE8E0B;
+  transition: all 0.5s;
+}
+/* .small{
+  font-size: 10px;
+  width: 10px;
+} */
+.table_scroll{
+  overflow-x: auto;
+}

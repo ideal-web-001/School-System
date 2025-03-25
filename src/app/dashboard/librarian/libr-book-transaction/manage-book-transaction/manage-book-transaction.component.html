@@ -1,0 +1,48 @@
+<div class="bg-white w-100 h-100 ">
+    <div>
+      <mat-toolbar>
+        <span class="p-3">{{(tranid)?"Update Book Transaction":"Add Book Transaction"}}</span>
+        <span class="example-spacer"></span>
+        <mat-icon routerLink="../libr-book-transaction" class="pb-4">cancel</mat-icon>
+      </mat-toolbar>
+    </div>
+    <div class="bg-white border ">
+      <form [formGroup]="booktranform" >
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Transaction ID</mat-label>
+          <input matInput type="text"  formControlName="tran_id">
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Book ID</mat-label>
+          <input matInput type="text" required="" formControlName="book_id">
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Reciever ID</mat-label>
+          <input matInput type="email"  formControlName="reciever_id" >
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4 ">
+          <mat-label class="p-1">reciever_type</mat-label>
+          <input matInput type="text" required="" formControlName="reciever_type">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-form-field p-4 ">
+            <mat-label class="p-1">Issue date</mat-label>
+            <input matInput [matDatepicker]="picker" required="" formControlName="issue_date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Return date</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="return_date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        <button class="btn text-white btn-danger m-4"> &nbsp; &nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn text-white btn-primary m-4" (click)="reset()" *ngIf="!tranid">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn text-white btn-success m-4" (click)="(tranid)?updatebooktran():onsave()" [disabled]="!booktranform.valid">&nbsp;&nbsp;&nbsp;&nbsp;{{tranid?"update":"Add"}}&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      </form>
+  
+    </div>
+  
+  </div>

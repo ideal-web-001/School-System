@@ -1,0 +1,79 @@
+
+    <mat-toolbar >
+       <span>Expense</span>
+       <span class="example-spacer"></span>
+       <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Search</mat-label>
+          <span matPrefix></span>
+          <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </form>
+      <mat-icon routerLink="../manage-expense">add_circle</mat-icon>
+      </mat-toolbar>
+  
+      <div class="table_scroll">
+  <table mat-table mat-table [dataSource]="dataSource" class=" distbl mat-elevation-z8" matSort>
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="exp_position" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> S.No. </th>
+        <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+      </ng-container>
+    
+      <!-- id Column -->
+      <ng-container matColumnDef="exp_id">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.exp_id}} </td>
+      </ng-container>
+    
+      <!-- father's Name Column -->
+      <ng-container matColumnDef="exp_name" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.exp_name}} </td>
+      </ng-container>
+    
+      <!-- mother's name Column -->
+      <ng-container matColumnDef="exp_date">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.exp_date}} </td>
+      </ng-container>
+  
+      <!-- address Column -->
+      <ng-container matColumnDef="exp_amount" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.exp_amount}} </td>
+      </ng-container>
+      <!-- address Column -->
+      <ng-container matColumnDef="exp_paid" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Paid </th>
+        <td mat-cell *matCellDef="let element"> {{element.exp_paid}} </td>
+      </ng-container>
+  
+      <!-- address Column -->
+      <ng-container matColumnDef="exp_due" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Dues </th>
+        <td mat-cell *matCellDef="let element"> {{element.exp_due}} </td>
+      </ng-container>
+  
+      <!-- mother's name Column -->
+      <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef  mat-sort-header> Action </th>
+          <td mat-cell *matCellDef="let row"> 
+            <mat-icon routerLink="../edit-expense/{{row.exp_id}}">edit</mat-icon>
+            <!-- <mat-icon>delete</mat-icon> -->
+          </td>
+        </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+    
+    

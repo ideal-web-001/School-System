@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="/assets/logo.png" alt="">
+<span class="sname">UNIQUE SCHOOL</span>
+  <span class="example-spacer"></span>
+  <span [matMenuTriggerFor]="menu" style="font-family: Inria Serif;">{{login_as.user_name|titlecase }}<mat-icon >arrow_drop_down</mat-icon></span>
+      <div id="usericon" [matMenuTriggerFor]="menu"><img class="rounded-circle" src={{img_url}} alt=""></div>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item class="text-white" routerLink="/login"><mat-icon class="text-white">logout</mat-icon>Log out</button>
+  <!-- <button mat-menu-item class="text-white">Setting</button> -->
+</mat-menu>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" [mode]="sidemode" [opened]="autoside">
+    <div id="intro">
+      <img src={{img_url}} alt=""><br>
+      <span>ID: Th-{{login_as.type_id}}</span><br>
+      <span>Name: {{login_as.user_name |titlecase}}</span><br><hr>
+    </div>
+      <ul>
+          <li routerLink="./th-dashboard" routerLinkActive="active"><mat-icon>dashboard</mat-icon>Dashboard</li>
+          <li routerLink="./th-salary" routerLinkActive="active"><mat-icon>paid</mat-icon>Salary</li>
+          <li routerLink="./th-librarydetails" routerLinkActive="active"><mat-icon>article</mat-icon>Library</li>
+          <li routerLink="./th-application" routerLinkActive="active"><mat-icon>book</mat-icon>Application</li>
+          <li routerLink="./th-notification" routerLinkActive="active"><mat-icon>notifications</mat-icon>Notifications</li>
+          <li routerLink="./th-exam" routerLinkActive="active"><mat-icon>note</mat-icon>Exam</li>
+          <li routerLink="/login"><mat-icon>logout</mat-icon>Logout</li>
+          <!-- <li ><mat-icon>settings</mat-icon>Setting</li> -->
+      </ul>
+  </mat-drawer>
+  <!-- <router-outlet></router-outlet> -->
+  <app-viewport></app-viewport>
+</mat-drawer-container>
+<div id="footer">Unique school@2023</div>

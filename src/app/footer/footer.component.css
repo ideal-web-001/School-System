@@ -1,0 +1,21 @@
+.footer{
+    background-color:#FE8E0b;
+    width: 100%;
+ 
+}
+.nav-link{
+    color: white;
+    /* font-weight: bold; */
+}
+.text-center{
+    /* font-weight: bold; */
+    color: white;
+    padding: 0px;
+    margin: 0px;
+   
+} 
+@media(min-width:769px){
+    .footer{
+      float: left;
+}
+}

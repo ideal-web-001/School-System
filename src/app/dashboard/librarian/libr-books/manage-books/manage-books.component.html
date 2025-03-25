@@ -1,0 +1,43 @@
+<div class="bg-white w-100 h-100 ">
+    <div>
+      <mat-toolbar>
+        <span class="p-3">{{(bookid)?"Update student":"Add Student"}}</span>
+        <span class="example-spacer"></span>
+        <mat-icon routerLink="../libr-books" class="pb-4">cancel</mat-icon>
+      </mat-toolbar>
+    </div>
+    <div class="bg-white border ">
+      <form [formGroup]="bookform" class="w-50">
+        <!-- <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Book ID</mat-label>
+          <input matInput type="text" required="" formControlName="book_id">
+        </mat-form-field> -->
+        <input type="hidden"  formControlName="book_id" *ngIf="bookid">
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1"> Book Name</mat-label>
+          <input matInput type="text" required="" formControlName="book_name">
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Book Author</mat-label>
+          <input matInput type="text" required="" formControlName="book_author">
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Book publication</mat-label>
+          <input matInput type="text" required="" formControlName="book_publi" >
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4">
+          <mat-label class="p-1">Book edition</mat-label>
+          <input matInput type="email" required="" formControlName="book_edition">
+        </mat-form-field>
+        <mat-form-field class="example-form-field p-4 ">
+          <mat-label class="p-1">Book price</mat-label>
+          <input matInput type="text" required="" formControlName="book_price">
+        </mat-form-field><br>
+        <button class="btn text-white btn-danger m-4" routerLink="../view_books"> &nbsp; &nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn text-white btn-primary m-4" (click)="reset()" *ngIf="!bookid">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn text-white btn-success m-4" (click)="(bookid)?updatebook():onsave()" [disabled]="!bookform.valid">&nbsp;&nbsp;&nbsp;&nbsp;{{bookid?"Update":"Add"}}&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      </form>
+  
+    </div>
+  
+  </div>

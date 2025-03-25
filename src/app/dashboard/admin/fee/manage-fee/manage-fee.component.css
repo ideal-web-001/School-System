@@ -1,0 +1,23 @@
+/* head of form */
+mat-toolbar{
+    background-color:white;
+    color: #FE8E0B;
+}
+.padding{
+    padding-right:15px;
+    margin-top: 30px;
+}
+.mat-icon{
+    color: #FE8E0B;
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+    float: right;
+}
+/* forms */
+.example-form-field {
+    width: 300px;
+  }
+  input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+}

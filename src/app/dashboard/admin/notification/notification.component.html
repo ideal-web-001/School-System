@@ -1,0 +1,54 @@
+<div>
+  <mat-toolbar>
+     <span>Notifications</span>
+     <span class="example-spacer"></span>
+     <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <span matPrefix></span>
+        <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </form>
+    <mat-icon routerLink="../manage-notification">add_circle</mat-icon>
+    </mat-toolbar>
+</div>
+<div class="table_scroll">
+<table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Serial Number -->
+    <ng-container matColumnDef="Sn" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> S.No. </th>
+      <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+    </ng-container>
+    <!-- notification type-->
+    <!-- <ng-container matColumnDef="notice_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Notification Id </th>
+      <td mat-cell *matCellDef="let row"> {{row.notice_id}} </td>
+    </ng-container>
+   -->
+    <!-- notification type-->
+    <ng-container matColumnDef="notice_type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Notice Subject </th>
+      <td mat-cell *matCellDef="let row"> {{row.notice_type}} </td>
+    </ng-container>
+    <!--Notification Date-->
+    <ng-container matColumnDef="notice_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Notice Date </th>
+      <td mat-cell *matCellDef="let row"> {{row.notice_date}} </td>
+    </ng-container>
+
+    <!-- Action -->
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"><mat-icon routerLink="../manage-notification">visibility</mat-icon></td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>

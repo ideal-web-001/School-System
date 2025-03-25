@@ -1,0 +1,109 @@
+#about-heading{
+    width: calc(100% - 40px);
+    border-radius: 5px;
+    margin: 10px 20px 24px 20px;
+    height: 50px;
+    text-align: center;
+    font-family: Cambria;
+    font-size: 30px;
+    color: white;
+    background-color: #FE8E0b;
+    padding: 10px;
+
+}
+#whygs{
+    width:calc(100% - 40px);
+    margin: 10px 20px 10px; 
+    height: 300px;
+}
+/*why gs child div for image*/
+#whygsimg{
+    width: 40%;
+    height: 100%;
+    background-color:#F5F5F5;
+    float: left;
+}
+/* why gs child div for text */
+#whygstext{
+    width: calc(60% - 5px);
+    height: 100%;
+    background-color: #F5F5F5;
+    float: right;
+    margin-left: 5px;
+    font-family: Cambria;
+    font-size: 20px;
+    padding: 20px;
+    line-height: 35px;
+    text-align: justify;
+    word-spacing: 5px;
+    letter-spacing: 0.5px;
+}
+
+#whygsimg img{
+    height: 100%;
+    width: 100%;
+}
+@media(max-width:790px){
+    #about-heading{
+        width: calc(100% - 10px);
+        border-radius: 5px;
+        margin: 10px 5px 10px;
+        
+    } 
+    #whygs{
+        width:calc(100% - 10px) ;
+        height: 700px;
+        margin: 10px 5px 10px; 
+
+
+    }
+    #whygsimg{
+        width: 100%;
+        height: calc(30% - 10px);
+        background-color:#F5F5F5;
+        /* float: left; */
+        margin-bottom: 10px;
+    }
+    #whygstext{
+        width: 100%;
+        height: 70%;
+        font-size: 18px;
+        line-height: 25px;
+        word-spacing: 5px;
+        letter-spacing: 0.5px;
+    }
+}
+
+
+/* @media(max-width:800px){
+    #whygs{
+        height: 800px;
+    }
+    #whygsimg{
+        width:100%;
+        height: calc(800px/2);
+        margin-bottom: 5px; 
+    }    
+    #whygstext{
+        width:100%; 
+        height: calc(800px/2);
+        margin-bottom: 5px;
+    } 
+}
+@media(max-width:1200px) and (min-width:945px){
+    #whygs{
+        height: 400px;
+    }
+}
+@media(max-width:945px) and (min-width:799px){
+    #whygs{
+        height: 460px;
+    }
+}
+  
+@media(max-width:560px){
+    #whygstext p{
+        line-height: 22px;
+        font-size: 20px;
+    }
+}  */

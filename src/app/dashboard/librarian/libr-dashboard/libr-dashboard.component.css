@@ -1,0 +1,45 @@
+.thumbnail-container{
+    display: flex;
+    flex-wrap: wrap;
+    }
+  .thumbnail {
+      width: calc(25% - 23px);
+      height: 150px;
+      border-left: 5px solid #FE8E0B;
+      border-radius: 5px;
+      margin-top: 20px;
+      margin-left: 18px;
+      background-color:  #FE8E0B;
+      position: relative;
+    }
+    mat-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 50px;
+      float: right;
+      margin: 20px;
+      color: whitesmoke;
+      margin-top: 30px;
+    }
+    .thumbnail div{
+      font-size: 20px;
+      line-height: 35px;
+      margin-top: 30px;
+      margin-left: 20px;
+      color:whitesmoke;
+      line-height: 30px;
+      font-family: inria serif;
+      text-shadow: 1px 1px 1px rgb(112, 110, 110);
+      text-align: left;
+    }
+    /* .................................media query........................................ */
+    @media(max-width:768px){
+      .thumbnail {
+        width: calc(100% - 20px);
+        margin: 10px;
+      }
+      .thumbnail div{
+        margin-left: 2px;
+        font-size: 16px;
+      }
+    }

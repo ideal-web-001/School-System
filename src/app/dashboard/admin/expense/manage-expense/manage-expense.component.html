@@ -1,0 +1,50 @@
+<div class="bg-white w-100 h-100 ">
+  <div>
+    <mat-toolbar>
+      <span class="p-3">{{(expid)?'Update Expense':'Add Expense'}}</span>
+      <span class="example-spacer"></span>
+      <mat-icon routerLink="../expense" class="pb-4">cancel</mat-icon>
+    </mat-toolbar>
+  </div>
+  <div class="bg-white border ">
+    <form [formGroup]="expenseform" class="w-100">
+     <!-- expense name -->
+      <input type="hidden" formControlName="exp_id" *ngIf="expid">
+      <mat-form-field class="example-form-field p-4">
+        <mat-label class="p-1">Expense Name</mat-label>
+        <input matInput type="text" required="" formControlName="exp_name">
+      </mat-form-field>  
+      <!-- expense date -->
+      <mat-form-field color="accent" appearance="fill"  class="example-form-field p-4">
+        <mat-label>Expense Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="exp_date" required="">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <!-- expense amount -->
+      <mat-form-field class="example-form-field p-4">
+        <mat-label class="p-1">Expense Amount</mat-label>
+        <input matInput type="number" required="" formControlName="exp_amount">
+      </mat-form-field>  
+      <!-- expense paid -->
+      <mat-form-field class="example-form-field p-4">
+        <mat-label class="p-1">Paid</mat-label>
+        <input matInput type="number" required="" formControlName="exp_paid">
+      </mat-form-field>  
+      <!-- expense due -->
+      <mat-form-field class="example-form-field p-4">
+        <mat-label class="p-1">Dues</mat-label>
+        <input matInput type="number" required="" formControlName="exp_due">
+      </mat-form-field> <br> 
+      <div class="w-100 text-center">
+        <button class="btn text-white btn-danger m-4" routerLink="../expense"> &nbsp; &nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn text-white btn-primary m-4" (click)="reset()" *ngIf="!expid">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button class="btn text-white btn-success m-4" (click)="(expid)?updateExp():onSave()" >&nbsp;&nbsp;&nbsp;&nbsp;{{(expid)?'Update':'Add'}}&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  
+      </div>
+       
+    </form> 
+        
+
+</div>

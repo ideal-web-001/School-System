@@ -1,0 +1,52 @@
+<div>
+    <mat-toolbar>
+       <span>Salary</span>
+       <span class="example-spacer"></span>
+      <mat-icon routerLink="../th-dashboard">cancel</mat-icon>
+      </mat-toolbar>
+  </div>
+  <div class="table_scroll">
+  <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> S.No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+    
+      <!-- id Column -->
+      <ng-container matColumnDef="sdate">
+        <th mat-header-cell *matHeaderCellDef> Salary Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.sdate}} </td>
+      </ng-container>
+    
+      <!-- father's Name Column -->
+      <ng-container matColumnDef="samount">
+        <th mat-header-cell *matHeaderCellDef> Salary Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.samount}} </td>
+      </ng-container>
+    
+      <!-- mother's name Column -->
+      <ng-container matColumnDef="spaid">
+        <th mat-header-cell *matHeaderCellDef> Salary Paid </th>
+        <td mat-cell *matCellDef="let element"> {{element.spaid}} </td>
+      </ng-container>
+  
+      <!-- address Column -->
+      <ng-container matColumnDef="sdues">
+        <th mat-header-cell *matHeaderCellDef> Salary Dues </th>
+        <td mat-cell *matCellDef="let element"> {{element.sdues}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="s_action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> <mat-icon class="text-black">visibility</mat-icon></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>  

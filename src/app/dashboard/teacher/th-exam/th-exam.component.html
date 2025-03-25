@@ -1,0 +1,42 @@
+<div id="mainsection" class="w-100 h-100 bg-white">
+  <div class="border-bottom">
+    <mat-toolbar >
+      <span>Add Questions</span>
+      <span class="example-spacer"></span>
+      <mat-icon routerLink="../th-dashboard">cancel_circle</mat-icon>
+    </mat-toolbar>
+  </div>
+
+    <form action="" class="m-3">
+      
+      <!-- for class -->
+      <mat-form-field appearance="fill" class="m-3">
+        <mat-label>class</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let classs of classes" [value]="classs.value">
+            {{classs.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- for subject -->
+      <mat-form-field appearance="fill" class="m-3 ">
+        <mat-label>Subject</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+            {{subject.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- for number of question -->
+      <mat-form-field class="example-form-field p-3 ">
+        <mat-label class="p-1">No.of Questions</mat-label>
+        <input matInput type="text" required="" >
+      </mat-form-field>
+      <!-- for exam type -->
+      <mat-form-field class="example-form-field p-3 ">
+        <mat-label class="p-1">Exam Type</mat-label>
+        <input matInput type="text" required="" >
+      </mat-form-field><br>
+      <button routerLink="../th-questions" mat-raised-button color="primary" class="p-3  m-3">Add</button>
+    </form>
+</div>

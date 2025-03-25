@@ -1,0 +1,38 @@
+mat-toolbar{
+    background-color:white;
+    color: #FE8E0B;
+}
+.mat-icon{
+    color: #FE8E0B;
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+    float: right;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 275px;
+  width: 100%;
+  position: relative;
+  top: 10px;
+  right: -60px;
+}
+  
+  .example-full-width {
+    width: 200px;
+    height: 70px;
+  }
+/* table css */
+table {
+    width: 100%;
+  }
+   table th{
+    background-color: #FE8E0B;
+    color: white;
+}
+.mat-icon{
+  float: none;
+}
+.table_scroll{
+  overflow-x: auto;
+}

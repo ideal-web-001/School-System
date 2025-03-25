@@ -1,0 +1,24 @@
+<div id="container">
+<app-header></app-header>
+<div id="wrapper">
+    <h1>Login</h1>
+    <form [formGroup]="login">
+    <label for="">Username</label><br>
+    <mat-form-field  class="input">
+        <input matInput type= "text" placeholder="Username" formControlName="uid">
+        </mat-form-field>
+        <label for="">Password</label><br>
+        <mat-form-field appearance="fill" class="input">
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="pwd">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="visibilitybutton">
+              <mat-icon class="color">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            </mat-form-field>
+        <br><br>
+
+        <button (click)="ontologin()" class="loginbutton">Login</button><br><br>
+        <span>Forget password?<a href="#" routerLink="/forgotpassword">click</a></span>
+    </form> 
+</div>
+<app-footer></app-footer>
+</div>

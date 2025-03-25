@@ -1,0 +1,35 @@
+<div class="w-100 h-100">
+  <div class="bg-white h-100 w-100">
+    <div>
+      <mat-toolbar>
+        <span class="p-3"> Add Application</span>
+        <span class="example-spacer"></span>
+        <mat-icon routerLink="../libr-application" class="pb-4">cancel</mat-icon>
+      </mat-toolbar>
+    </div>
+
+    <form class=" text-center bg-white" [formGroup]="librn_application">
+      <div>
+        <mat-form-field class="example-full-width p-3">
+          <mat-label class="p-1">Subject</mat-label>
+          <input matInput type="text" required="" formControlName="appli_type">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="example-full-width p-3">
+          <mat-label>Sender Type</mat-label>
+          <mat-select required="" formControlName="sender_type">
+            <mat-option value="Student">Student</mat-option>
+            <mat-option value="Teacher">Teacher</mat-option>
+            <mat-option value="Librarian">Librarian</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <textarea class=" p-3  " name="" id="" cols="100" rows="15" required="" formControlName="appli_msg"></textarea>
+      <div class="">
+        <button class="btn text-white btn-danger  p-2 m-3">Cancel</button>
+        <button class="btn text-white btn-success p-2 m-3" (click)="onsave()">Publish</button>
+      </div>
+    </form>
+  </div>
+</div>

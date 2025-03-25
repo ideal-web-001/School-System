@@ -1,0 +1,134 @@
+<div class="bg-white w-100 h-auto">
+    <div>
+      <mat-toolbar>
+        <span class="p-3">{{(sid)?"Update Student":"Add Student"}}</span>
+        <span class="example-spacer"></span>
+        <mat-icon class="pb-4" (click)="back()">cancel</mat-icon>
+      </mat-toolbar>
+    </div>
+      <div class="bg-white border p-4">
+        <!-- Name -->
+         <form  class="example-form" [formGroup]="add_std" >
+             <div class="img_style">
+                 <img src="{{img_url}}" width="100%" height="100%">
+              <button mat-fab color="primary" (click)="image.click()">
+                 <mat-icon class="pic_add_icon">add</mat-icon>
+                 <input type="file" #image (change) ="onImgChng(image.files)"  accept=".png,.jpg">
+              </button>
+           </div>
+           <input type="hidden" formControlName="std_id" *ngIf="sid">
+       <!-- class -->
+       <mat-form-field appearance="fill" class="example-form-field padding ">
+        <mat-label>Class</mat-label>
+       <mat-select required="" formControlName="class_id" (valueChange)="onrollno($event)">
+         <mat-option *ngFor="let class of class"[value]="class.class_id">{{class.class_name}}</mat-option>   
+       </mat-select>
+      </mat-form-field>
+          
+       <!-- Roll.No -->
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Roll</mat-label>
+        <input formControlName="std_roll" matInput type="number" onkeypress=" return this.value.length < 10"
+                oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}  " readonly >
+      </mat-form-field> 
+         <!--class fess  -->
+         <mat-form-field class="example-form-field padding">
+          <mat-label class="p-1">Clas Fee</mat-label>
+          <input matInput type="number" required="" formControlName="std_due" [value] ="">
+        </mat-form-field>
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Name</mat-label>
+        <input matInput type="text" required="" formControlName="std_name">
+      </mat-form-field>
+      
+      <!-- Father's Name -->
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Father's Name</mat-label>
+        <input matInput type="text" required="" formControlName="std_fname">
+      </mat-form-field>
+      <!-- Mother's Name -->
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Mother's Name</mat-label>
+        <input matInput type="text" required="" formControlName="std_mname">
+      </mat-form-field>
+      <!-- Date Of Birth -->
+      <mat-form-field color="accent" appearance="fill" class="example-form-field padding">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="std_dob">
+        <mat-hint>YYYY/MM/DD</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <!-- Email -->
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Email</mat-label>
+        <input matInput type="email" required="" formControlName="std_email">
+      </mat-form-field>
+      <!-- Mobile Number -->
+      <mat-form-field class="example-form-field padding ">
+          <mat-label class="p-1">Mob</mat-label>
+          <input formControlName="std_mob" matInput type="number" onkeypress=" return this.value.length < 10"
+         oninput="if(this.value.length>=10) {this.value = this.value.sclice (0,10);}" >
+      </mat-form-field> 
+      <!-- AAdhar Number -->
+      <mat-form-field class="example-form-field padding ">
+          <mat-label class="p-1">Aadhar No.</mat-label>
+          <input formControlName="std_aadhar" matInput type="number" onkeypress=" return this.value.length < 12"
+                oninput="if(this.value.length>=12) {this.value = this.value.sclice (0,12);}" >
+      </mat-form-field>
+      <!-- Gender -->
+      <mat-form-field appearance="fill" class="example-form-field padding">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="std_gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Others</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- Blood Group -->
+      <mat-form-field appearance="fill" class="example-form-field padding ">
+        <mat-label>Blood Group</mat-label>
+        <mat-select required="" formControlName="std_bg">
+          <mat-option value="O+">O+</mat-option>
+          <mat-option value="B+">B+</mat-option>
+          <mat-option value="O-">O-</mat-option>
+          <mat-option value="AB-">AB-</mat-option>
+          <mat-option value="AB+">AB+</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- nationality -->
+      <mat-form-field class="example-form-field padding ">
+        <mat-label class="p-1">nationality</mat-label>
+        <input matInput type="text" required="" formControlName="std_nationality">
+      </mat-form-field>
+      <!-- identification Mark -->
+       <mat-form-field class="example-form-field padding ">
+        <mat-label class="p-1">Identification Mark</mat-label>
+        <input matInput type="text" formControlName="std_identification">
+      </mat-form-field>
+      <!-- address -->
+      <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Address</mat-label>
+       <textarea matInput type="text" formControlName="std_address" rows="1"></textarea>
+      </mat-form-field>
+     <!--password  -->
+      <!-- <mat-form-field class="example-form-field padding">
+        <mat-label class="p-1">Password</mat-label>
+        <input matInput type="password" formControlName="std_password">
+      </mat-form-field> -->
+      <mat-form-field appearance="fill" class="example-form-field padding">
+      <mat-label class="p-1">Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="std_password">
+       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+      <mat-icon class="color">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+     </mat-form-field>
+       <!-- photo -->
+      <!-- <input class="p-4" type="file"> -->
+      <br>
+      <button class="btn text-white btn-primary m-2 mt-0 " (click)="reset_form()" *ngIf="!sid">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <button class="btn text-white btn-danger  m-2 mt-0 " (click)="goback()"> &nbsp; &nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <button class="btn text-white btn-success   m-2 mt-0  " (click)="(sid)?updatestd():onSave()" >&nbsp;&nbsp;&nbsp;&nbsp;{{(sid)?"Update":"Add"}}&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div>
+    <mat-toolbar>
+       <span class="p-3">Manage Salary Recipits</span>
+       <span class="example-spacer"></span>
+      <mat-icon routerLink="../salary" class="pb-4">cancel</mat-icon>
+      </mat-toolbar>
+</div>
+<div class="bg-white border ">
+    <form action=""[formGroup]="add_salary">
+      <mat-form-field appearance="fill" class="example-form-field p-4 ">
+        <mat-label>Employe Type</mat-label>
+        <mat-select required=""formControlName="emp_type" (valueChange)="onchnageemptype($event)">
+          <mat-option value="Teacher">Teacher</mat-option>
+          <mat-option value="librarian">Librarian</mat-option>
+          <mat-option value="staff">Staff</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-form-field p-4 ">
+        <mat-label> Employee Name</mat-label>
+        <mat-select formControlName="emp_id" (valueChange)="onchnagename($event)">
+          <mat-option *ngFor="let emp of employee" [value]="emp.emp_id">{{emp.emp_name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+          <!-- <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Employee Name</mat-label>
+            <input matInput type="text" required="" >
+          </mat-form-field> -->
+         
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Salary Amount</mat-label>
+            <input matInput type="number" required="" formControlName="salary_amount" >
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4">
+            <mat-label class="p-1">Paid Amount</mat-label>
+            <input matInput type="number" required="" formControlName="salary_paid" (keyup)="oncalcamount()">
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 ">
+            <mat-label class="p-1">Dues Amount</mat-label>
+            <input matInput type="number" required="" formControlName="salary_due" >
+          </mat-form-field>
+          <mat-form-field class="example-form-field p-4 "color="accent" appearance="fill">
+            <mat-label>Payment Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="salary_date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field><br>
+          <button  class="btn text-white btn-danger m-4">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          <button  class="btn text-white btn-primary m-4" (click)="OnReset()" >&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          <button  class="btn text-white btn-success m-4"(click)="OnSave()" >&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </form>
+   
+</div>
