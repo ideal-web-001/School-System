@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit, AfterViewInit{
-  displayedColumns: string[] = ['Sn', 'notice_type','notice_date', 'action'];
+  displayedColumns: string[] = ['Sn','notice_id' ,'notice_type','notice_date', 'action'];
   dataSource = new MatTableDataSource();
       total_count:number = 0;
       @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -40,5 +40,13 @@ applyFilter(event: Event) {
   if (this.dataSource.paginator) {
     this.dataSource.paginator.firstPage();
   }
+}
+onDelete(nid:any){
+ this.api.delete_notice(nid).subscribe(
+  (res:any)=>{
+    console.log(res.message);
+  }
+  )
+
 }
 }
