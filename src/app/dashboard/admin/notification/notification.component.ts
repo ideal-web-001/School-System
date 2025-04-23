@@ -3,6 +3,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/api.service';
+import { DeleteboxComponent } from 'src/app/deletebox/deletebox.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-notification',
@@ -12,12 +18,17 @@ import { ApiService } from 'src/app/api.service';
 export class NotificationComponent implements OnInit, AfterViewInit{
   displayedColumns: string[] = ['Sn','notice_id' ,'notice_type','notice_date', 'action'];
   dataSource = new MatTableDataSource();
+  deletevalue: any = 1;
       total_count:number = 0;
       @ViewChild(MatPaginator) paginator!: MatPaginator;
       @ViewChild(MatSort) sort!: MatSort;
 
     constructor(
-      private api:ApiService
+      private api:ApiService,
+      private url : ActivatedRoute,
+      private router:Router,
+      private dialog: MatDialog
+      
     ){}
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -42,11 +53,24 @@ applyFilter(event: Event) {
   }
 }
 onDelete(nid:any){
- this.api.delete_notice(nid).subscribe(
-  (res:any)=>{
-    console.log(res.message);
-  }
-  )
+ const dialogRef = this.dialog.open(DeleteboxComponent, {
+      data: this.deletevalue,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (this.deletevalue == result) {
+        this.api.delete_notice(nid).subscribe(
+          (res:any)=>{
+            alert(res.message);
+            window.location.reload();
+            // this.router.navigate(["/admin/notification"]);
+          }
+          )
+      }
+      else {
+       }
+    });
+
+ 
 
 }
 }

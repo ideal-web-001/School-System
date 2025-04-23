@@ -56,7 +56,8 @@ export class AdminTeacherComponent implements OnInit, AfterViewInit{
         this.api.deleteTeacher(t_id).subscribe(
           (res: any) => {
             // console.log(res)
-            alert('Data delete successfully')
+            alert(res.message)
+            window.location.reload();
           }
         )
       }

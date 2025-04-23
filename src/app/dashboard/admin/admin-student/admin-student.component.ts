@@ -60,6 +60,7 @@ export class AdminStudentComponent implements OnInit, AfterViewInit {
           (res: any) => {
             // console.log(res)
             alert('Data delete successfully')
+            window.location.reload();
           }
         )
       }

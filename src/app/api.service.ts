@@ -82,7 +82,7 @@ export class ApiService {
     return this.http.post(this.baseUrl + 'std_formdata_update.php', data);
   }
   delete_std(std_id: any) {
-    return this.http.delete(this.baseUrl + 'std_delete.php?sid=' + std_id);
+    return this.http.delete(this.baseUrl + 'student_delete.php?sid=' + std_id);
   }
 
   // endingg......
@@ -116,7 +116,7 @@ export class ApiService {
     return this.http.post(this.baseUrl + 'notification_insert_tbl.php', data)
   }
   delete_notice(id: any) {
-    return this.http.delete(this.baseUrl + 'notification_delete_tbl.php?nid='+ id);
+    return this.http.delete(this.baseUrl + 'notice_delete.php?nid='+ id);
   }
 
   // endingg......
@@ -178,7 +178,7 @@ export class ApiService {
     return this.http.post(this.baseUrl + 'teacher_formdata_update.php', data);
   }
   deleteTeacher(t_id: any) {
-    return this.http.delete(this.baseUrl + 'teacher_delete.php?tid=' + t_id)
+    return this.http.delete(this.baseUrl + 'teacher_del.php?tid=' + t_id)
   }
 
   // end  theacher module.... 
