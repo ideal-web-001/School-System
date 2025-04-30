@@ -116,7 +116,7 @@ export class ApiService {
     return this.http.post(this.baseUrl + 'notification_insert_tbl.php', data)
   }
   delete_notice(id: any) {
-    return this.http.delete(this.baseUrl + 'notice_delete.php?nid='+ id);
+    return this.http.delete(this.baseUrl + 'notice_delete.php?nid=' + id);
   }
 
   // endingg......
@@ -249,7 +249,7 @@ export class ApiService {
     return this.http.post(this.baseUrl + 'login.php', data);
   }
   get_single_class(classid: any) {
-    console.log(classid)
+    // console.log(classid)
     return this.http.get(this.baseUrl + 'class_view.php?class_id=' + classid)
   }
   put_class(data: any) {
