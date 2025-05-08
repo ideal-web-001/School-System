@@ -89,6 +89,9 @@ import { ExpenseComponent } from './dashboard/admin/expense/expense.component';
 import { ManageExpenseComponent } from './dashboard/admin/expense/manage-expense/manage-expense.component';
 import { DatePipe } from '@angular/common';
 import { DeleteboxComponent } from './deletebox/deletebox.component';
+import { OpinionSectionComponent } from './opinion-section/opinion-section.component';
+import { ExperienceSectionComponent } from './experience-section/experience-section.component';
+import { WhatsNewSectionComponent } from './whats-new-section/whats-new-section.component';
 
 
 @NgModule({
@@ -162,6 +165,9 @@ import { DeleteboxComponent } from './deletebox/deletebox.component';
     ExpenseComponent,
     ManageExpenseComponent,
     DeleteboxComponent,
+    OpinionSectionComponent,
+    ExperienceSectionComponent,
+    WhatsNewSectionComponent,
 
   ],
   imports: [

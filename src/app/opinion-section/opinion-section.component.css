@@ -1,0 +1,73 @@
+.opinion-section {
+  background: linear-gradient(to bottom, #f4faff 0%, #ffffff 100%);
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.sub-title {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.highlight-text {
+  color: #00aaff;
+  font-weight: bold;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+.user-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.country {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .sub-title {
+    font-size: 1rem;
+  }
+}
