@@ -54,12 +54,13 @@ export class AdminStudentComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(DeleteboxComponent, {
       data: this.deletevalue,
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (this.deletevalue == result) {
         this.api.delete_std(std_id).subscribe(
           (res: any) => {
             // console.log(res)
             alert('Data delete successfully')
+            window.location.reload();
           }
         )
       }
