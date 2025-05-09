@@ -32,6 +32,7 @@ export class ManageStudentComponent implements OnInit {
     if (this.sid) {
       this.api.get_single_student(this.sid).subscribe(
         (res: any) => {
+          // console.log(res.data)
           this.add_std.patchValue(res.data);
           this.img_url =(res.data['std_img'])? this.img_local_url+res.data['std_img']:this.img_local_url+'logo.png';
           console.log(res.data)
@@ -64,6 +65,7 @@ export class ManageStudentComponent implements OnInit {
     std_address: ['', Validators.required],
     std_password: [''],
     class_id: ['', Validators.required],
+    class_fee: ['', Validators.required],
     std_photo:['']
   })
   }
