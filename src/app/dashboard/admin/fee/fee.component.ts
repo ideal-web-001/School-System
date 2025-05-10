@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/api.service';
   styleUrls: ['./fee.component.css']
 })
 export class FeeComponent implements OnInit, AfterViewInit{
-      displayedColumns: string[] = ['Sn', 'fee_id','std_name','class_name','std_roll','class_fee','curr_paid','fee_rcv','curr_due','fee_date','action'];
+      displayedColumns: string[] = ['Sn', 'payment_id','std_id','std_name','class_name','monthly_fee','month','paid_amount','due_amount','payment_date','action'];
       dataSource = new MatTableDataSource();
       total_count:number = 0;
       @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -27,7 +27,7 @@ export class FeeComponent implements OnInit, AfterViewInit{
     ngOnInit(): void {
       this.api.get_fee().subscribe(
         (res:any)=> {
-          // console.log(res.data);
+          console.log(res.data);
           this.dataSource.data= res.data;
           // this. total_count = res.data.length;
         }

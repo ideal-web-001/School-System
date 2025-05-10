@@ -36,6 +36,7 @@
   
   .hero-buttons {
     display: flex;
+    justify-content: center;
     gap: 1rem;
   }
   
@@ -53,7 +54,12 @@
   .primary-btn {
     background-color: #fe8e0B;
     color: white;
+    
   }
+  .primary-btn:hover{
+    background: linear-gradient(180deg,  rgba(253, 129, 5, 0.7),rgba(254, 238, 13, 0.301));
+  }
+
   
   .secondary-btn {
     background-color: white;

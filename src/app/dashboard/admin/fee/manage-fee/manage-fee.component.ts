@@ -39,11 +39,13 @@ ngOnInit(): void {
 }
 add_fee = this.fb.group({
  std_id:['',Validators.required],
+ std_name:['',Validators.required],
 class_name:['',Validators.required],
 class_fee:['',Validators.required],
 fee_date:['',Validators.required],
 fee_rcv:['',Validators.required],
-std_due:['',Validators.required],
+month_fee:['',Validators.required],
+std_due:[''],
 // fee_paid:['',Validators.required],
 
 })
@@ -73,7 +75,14 @@ if(this.stdid){
     }
   )
 }
-this.add_fee.controls["fee_date"].setValue(new Date(). toISOString().slice(0,10))
+const today = new Date();
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, '0'); // months are zero-indexed
+const day = String(today.getDate()).padStart(2, '0');
+const localDateString = `${year}-${month}-${day}`;
+this.add_fee.controls["fee_date"].setValue(localDateString);
+
+// this.add_fee.controls["fee_date"].setValue(new Date(). toISOString().slice(0,10))
 // this.add_appli.controls['appli_date'].setValue(new Date().toISOString().slice(0,10))
 }
 calcfee($event:any){
@@ -81,8 +90,9 @@ calcfee($event:any){
   this.add_fee.get("std_due")?.setValue(String( Number(this.add_fee.get('class_fee')?.value) - Number(this.add_fee.get('fee_rcv')?.value)))
   // this.add_fee.get("fee_paid")?.setValue(String(Number( this.paidfee) + Number(this.add_fee.get('fee_rcv')?.value)))
   if(this.add_fee.get("std_due")?.value==null){
-    this.add_fee.get("std_due")?.setValue(String(0))
+    this.add_fee.get("std_due")?.setValue(String(Number(0)))
   }
+
  
 }
 updatefee(){

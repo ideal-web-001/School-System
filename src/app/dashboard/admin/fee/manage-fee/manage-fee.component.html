@@ -18,10 +18,35 @@
         <mat-option *ngFor="let class of class" [value]="class.class_name">{{class.class_name}}</mat-option>
       </mat-select>
     </mat-form-field> -->
+<!-- student name -->
+ <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">class</mat-label>
+      <input matInput type="text" required="" formControlName="std_name" >
+    </mat-form-field>
+
     <mat-form-field class="example-form-field padding ">
       <mat-label class="p-1">class</mat-label>
       <input matInput type="text" required="" formControlName="class_name" >
     </mat-form-field>
+
+<!-- select month -->
+    <mat-form-field appearance="fill" class="example-form-field padding">
+        <mat-label>Select month</mat-label>
+        <mat-select formControlName="month_fee">
+          <mat-option value="January">January</mat-option>
+          <mat-option value="February">February</mat-option>
+          <mat-option value="March">March</mat-option>
+          <mat-option value="April">April</mat-option>
+          <mat-option value="May">May</mat-option>
+          <mat-option value="June">June</mat-option>
+          <mat-option value="July">July</mat-option>
+          <mat-option value="August">August</mat-option>
+          <mat-option value="September">September</mat-option>
+          <mat-option value="October">October</mat-option>
+          <mat-option value="November">November</mat-option>
+          <mat-option value="December">December</mat-option>
+        </mat-select>
+      </mat-form-field>
 
     <!-- date -->
     <mat-form-field color="accent" appearance="fill" class="example-form-field padding">
