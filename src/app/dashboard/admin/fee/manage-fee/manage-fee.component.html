@@ -1,51 +1,84 @@
 <div>
-    <mat-toolbar>
-       <span class="p-3">Manage Fee Recipits</span>
-       <span class="example-spacer"></span>
-      <mat-icon routerLink="../fee" class="pb-4">cancel</mat-icon>
-      </mat-toolbar>
+  <mat-toolbar>
+    <span class="p-3">Manage Fee Recipits</span>
+    <span class="example-spacer"></span>
+    <mat-icon routerLink="../fee" class="pb-4">cancel</mat-icon>
+  </mat-toolbar>
 </div>
 <div class="bg-white border ">
-    <form [formGroup]="add_fee">
-        <mat-form-field class="example-form-field padding ">
-            <mat-label class="p-1">Student Id</mat-label>
-            <input matInput type="number" required="" formControlName="std_id" (keyup)="getstd($event)">
-          </mat-form-field>
-           <!-- class -->
-       <mat-form-field appearance="fill" class="example-form-field padding ">
-        <mat-label>Class</mat-label>
-       <mat-select required="" formControlName="class_id">
-         <mat-option *ngFor="let class of class"[value]="class.class_id">{{class.class_name}}</mat-option>   
-       </mat-select>
+  <form [formGroup]="add_fee">
+    <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">Student Id</mat-label>
+      <input matInput type="number" required="" formControlName="std_id" (keyup)="getstd($event)">
+    </mat-form-field>
+    <!-- class -->
+    <!-- <mat-form-field appearance="fill" class="example-form-field padding ">
+      <mat-label>Class</mat-label>
+      <mat-select required="" formControlName="class_name">
+        <mat-option *ngFor="let class of class" [value]="class.class_name">{{class.class_name}}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+<!-- student name -->
+ <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">class</mat-label>
+      <input matInput type="text" required="" formControlName="std_name" >
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">class</mat-label>
+      <input matInput type="text" required="" formControlName="class_name" >
+    </mat-form-field>
+
+<!-- select month -->
+    <mat-form-field appearance="fill" class="example-form-field padding">
+        <mat-label>Select month</mat-label>
+        <mat-select formControlName="month_fee">
+          <mat-option value="January">January</mat-option>
+          <mat-option value="February">February</mat-option>
+          <mat-option value="March">March</mat-option>
+          <mat-option value="April">April</mat-option>
+          <mat-option value="May">May</mat-option>
+          <mat-option value="June">June</mat-option>
+          <mat-option value="July">July</mat-option>
+          <mat-option value="August">August</mat-option>
+          <mat-option value="September">September</mat-option>
+          <mat-option value="October">October</mat-option>
+          <mat-option value="November">November</mat-option>
+          <mat-option value="December">December</mat-option>
+        </mat-select>
       </mat-form-field>
-          
-            <mat-form-field color="accent" appearance="fill" class="example-form-field padding">
-            <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker1" formControlName="fee_date">
-            <mat-hint>YYYY/MM/DD</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
-         
-          <mat-form-field class="example-form-field padding ">
-            <mat-label class="p-1">Dues Amount</mat-label>
-            <input matInput type="number" required="" formControlName="std_due">
-          </mat-form-field>
-          <mat-form-field class="example-form-field padding ">
-            <mat-label class="p-1">Recive amount</mat-label>
-            <input matInput type="number" required="" formControlName="fee_rcv" (keyup)="calcfee($event)">
-          </mat-form-field>
-          <mat-form-field class="example-form-field padding ">
-            <mat-label class="p-1">Total Paid</mat-label>
-            <input matInput type="number" required="" formControlName="fee_paid" (keyup)="calcfee($event)">
-          </mat-form-field>
-          
-          
-          <div class="text-center">
-            <button  class="btn text-white btn-danger m-4">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <button  class="btn text-white btn-primary m-4">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <button  class="btn text-white btn-success m-4"(click)="onSave()" (click)="updatefee()">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
-        </div>
-     </form>
-   
+
+    <!-- date -->
+    <mat-form-field color="accent" appearance="fill" class="example-form-field padding">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="fee_date">
+      <mat-hint>YYYY/MM/DD</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+<!-- monthly -->
+    <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">monthly</mat-label>
+      <input matInput type="number" required="" formControlName="class_fee" >
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">Dues Amount</mat-label>
+      <input matInput type="number" required="" formControlName="std_due" >
+    </mat-form-field>
+    <mat-form-field class="example-form-field padding ">
+      <mat-label class="p-1">Recive amount</mat-label>
+      <input matInput type="number" required="" formControlName="fee_rcv" (keyup)="calcfee($event)">
+    </mat-form-field>
+
+
+
+    <div class="text-center">
+      <button class="btn text-white btn-danger m-4">&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <button class="btn text-white btn-primary m-4">&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <button class="btn text-white btn-success m-4" (click)="onSave()"
+        (click)="updatefee()">&nbsp;&nbsp;&nbsp;&nbsp;Submit&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </div>
+  </form>
+
 </div>

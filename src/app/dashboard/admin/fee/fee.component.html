@@ -12,7 +12,7 @@
     </form>
     <mat-icon routerLink="../manage-fee">add_circle</mat-icon>
     </mat-toolbar>
-    <div class="bg-white text-success font-weigth-bold">Total:{{total_count}}</div>
+    <!-- <div class="bg-white text-success font-weigth-bold">Total:{{total_count}}</div> -->
 </div>
 <div class="table_scroll">
 <table mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
@@ -27,14 +27,19 @@
     </ng-container>
   
     <!-- id Column -->
-    <ng-container matColumnDef="fee_id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Transcation ID</th>
-      <td mat-cell *matCellDef="let row"> {{row.fee_id}} </td>
+    <ng-container matColumnDef="payment_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Payment ID</th>
+      <td mat-cell *matCellDef="let row"> {{row.payment_id}} </td>
+    </ng-container>
+    <!-- student_id -->
+    <ng-container matColumnDef="std_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Student ID</th>
+      <td mat-cell *matCellDef="let row"> {{row.std_id}} </td>
     </ng-container>
   
     <!--fee type Column -->
     <ng-container matColumnDef="std_name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Student's Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Student Name</th>
       <td mat-cell *matCellDef="let row"> {{row.std_name}} </td>
     </ng-container>
     <!-- fee date column -->
@@ -43,40 +48,41 @@
       <td mat-cell *matCellDef="let row"> {{row.class_name}} </td>
     </ng-container>
   
-    <!-- amount Column -->
-    <ng-container matColumnDef="std_roll">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Roll</th>
-      <td mat-cell *matCellDef="let row"> {{row.std_roll}} </td>
-    </ng-container>
+    
 
     <!-- fee paid Column -->
-    <ng-container matColumnDef="class_fee">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Fees</th>
-      <td mat-cell *matCellDef="let row"> {{row.class_fee}} </td>
+    <ng-container matColumnDef="monthly_fee">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>monthly Fee</th>
+      <td mat-cell *matCellDef="let row"> {{row.monthly_fee}} </td>
     </ng-container>
 <!-- payable amoount -->
     <!-- <ng-container matColumnDef="fee_amount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Payable</th>
       <td mat-cell *matCellDef="let row"> {{row.fee_amount}} </td>
     </ng-container> -->
+     <!-- month Fee -->
+    <ng-container matColumnDef="month">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Month</th>
+      <td mat-cell *matCellDef="let row"> {{row.month}} </td>
+    </ng-container>
+
+     <!-- recived column -->
+    <ng-container matColumnDef="paid_amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Received</th>
+      <td mat-cell *matCellDef="let row"> {{row.paid_amount}} </td>
+    </ng-container>
     <!-- dues Column -->
-    <ng-container matColumnDef="curr_due">
+    <ng-container matColumnDef="due_amount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Fee dues </th>
-      <td mat-cell *matCellDef="let row"> {{row.curr_due}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.due_amount}} </td>
     </ng-container>
-    <!-- recived column -->
-    <ng-container matColumnDef="fee_rcv">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Received</th>
-      <td mat-cell *matCellDef="let row"> {{row.fee_rcv}} </td>
-    </ng-container>
-    <ng-container matColumnDef="curr_paid">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Paid</th>
-      <td mat-cell *matCellDef="let row"> {{row.curr_paid}} </td>
-    </ng-container>
+   
+   
+
     <!-- fee date -->
-    <ng-container matColumnDef="fee_date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>date</th>
-      <td mat-cell *matCellDef="let row"> {{row.fee_date}} </td>
+    <ng-container matColumnDef="payment_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+      <td mat-cell *matCellDef="let row"> {{row.payment_date}} </td>
     </ng-container>
     <!-- std_id -->
     <!-- std_id -->

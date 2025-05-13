@@ -19,7 +19,7 @@ export class ManageClassComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.classid = (this.url.snapshot.params['id'])
-    // console.log(this.classid)
+    // console.log(th is.classid)
     if (this.classid) {
       this.api.get_single_class(this.classid).subscribe(
         (res: any) => {
