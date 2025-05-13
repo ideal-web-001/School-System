@@ -1,0 +1,11 @@
+button{
+  width: 200px;
+  background-color: rgb(83, 151, 240);
+  border-radius: 20px;
+}
+input{
+  width: 600px;
+  /* background-color: aqua; */
+  margin-right: 5px;
+  border-radius: 20px;
+}

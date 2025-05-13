@@ -92,6 +92,7 @@ import { DeleteboxComponent } from './deletebox/deletebox.component';
 import { OpinionSectionComponent } from './opinion-section/opinion-section.component';
 import { ExperienceSectionComponent } from './experience-section/experience-section.component';
 import { WhatsNewSectionComponent } from './whats-new-section/whats-new-section.component';
+import { AskAiStdComponent } from './dashboard/student/ask-ai-std/ask-ai-std.component';
 
 
 @NgModule({
@@ -168,6 +169,7 @@ import { WhatsNewSectionComponent } from './whats-new-section/whats-new-section.
     OpinionSectionComponent,
     ExperienceSectionComponent,
     WhatsNewSectionComponent,
+    AskAiStdComponent,
 
   ],
   imports: [
